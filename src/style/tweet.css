@@ -1,0 +1,49 @@
+.tweet {
+    display: flex;
+    padding: 30px;
+    border: 0.2px white solid;
+    width: 500px;
+}
+
+.profile-image {
+    margin-right: 30px;
+}
+
+.profile-image  img{
+    width: 90px;
+    border-radius: 50%;
+}
+
+.tweet-header{
+    display: flex;
+    margin-bottom: 1rem;
+}
+
+.tweet-header .user-name{
+    color: #fff;
+    margin-right: 1rem;
+    font-size: 1rem;
+}
+
+.tweet-header .user-name span {
+    color: #545454;
+    font-size: 0.95rem;
+}
+
+.tweet-header .time {
+    color: #848484;
+    font-size: 0.95rem;
+}
+
+.tweet-text {
+    margin-bottom: 1rem;
+    color: #fff;
+}
+
+.tweet-react-icons{
+    color: #545454;
+    display: flex;
+    align-items:center;
+    justify-content: space-between;
+    width: 100px;
+}
