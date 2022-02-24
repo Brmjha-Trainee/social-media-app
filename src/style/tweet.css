@@ -40,6 +40,8 @@
 .tweet-text {
     margin-bottom: 1rem;
     color: #fff;
+    width: 100%;
+    word-wrap: break-word;
 }
 
 .tweet-react-icons{

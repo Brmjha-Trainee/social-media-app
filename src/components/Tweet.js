@@ -6,6 +6,7 @@ import { BsReply } from 'react-icons/bs'
 
 
 
+
 class Tweet extends Component {
 
     render() {
@@ -19,7 +20,6 @@ class Tweet extends Component {
                 <div className="tweet-body">
                     <div className="tweet-header">
                         <div className="user-name"> { author.name} <span className="user-id"> @{author.id } </span></div>
-                        <div className="time">  </div>
                     </div>
                     <div className="tweet-text"> {tweet.text} </div>
                     <div className="tweet-react-icons" onClick={() => this.props.handleLike(tweet.id)}>  

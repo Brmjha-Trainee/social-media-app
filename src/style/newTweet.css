@@ -1,0 +1,52 @@
+.new-tweet-comp {
+    width: 50%;
+    margin: auto;
+    padding: 3rem 0;
+}
+
+.new-tweet-text {
+    font-size: 2rem;
+    text-align: center;
+    color: #ffff;
+}
+
+
+.new-tweet {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.textarea {
+    height: 150px;
+    width: 90%;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    background-color: #211F25;
+    padding: 10px;
+    color:#ffff;
+}
+
+.textarea:hover {
+    background-color: #27252b;
+}
+
+.submit-btn {
+    margin-top: 10px;
+    width: 150px;
+    height: 30px;
+    background-color: transparent;
+    border: 1px #04db85 solid;
+    color: #04db85;
+    border-radius:3px;
+    
+}
+
+.submit-btn:hover {
+    background-color: #04db85;
+    color: #ffff;
+}
+
+.tweet-length {
+    color: #BE3C16;
+}

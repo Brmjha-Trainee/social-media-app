@@ -1,8 +1,11 @@
 import '../style/App.css'
 import React , {Component } from 'react'
-import { getInitialData } from '../utils/api';
-import Tweet from './Tweet';
-import loading from "../img/loading.gif";
+import { getInitialData } from '../utils/api'
+import Tweet from './Tweet'
+import loading from '../img/loading.gif'
+import NewTweet from './NewTweet'
+import nextId from "react-id-generator";
+
 
 class App extends Component {
   // first get the users  and tweets
@@ -51,13 +54,32 @@ class App extends Component {
       tweet:nweTweets
     })
   }
+  
+  addTweet = (text) => {
+    const { Authed_ID} = this.state
+    const newTweets = this.state.tweets
+    const id = nextId()
+    newTweets[id] = {
+      id: id,
+      text: text,
+      author: Authed_ID,
+      likes: [],
+      replies: [],
+      replyingTo: null,
+    } 
+    console.log(newTweets)
+    this.setState({
+      tweets: newTweets
+    })
+  }
 
   render() {
-    const tweets = Object.keys(this.state.tweets).map((key) => { return  this.state.tweets[key]; })
+    const tweets = Object.keys(this.state.tweets).map((key) => { return  this.state.tweets[key]; }).slice(0).reverse()
     const users = Object.keys(this.state.users).map((key) => { return  this.state.users [key]; })
     return (
       // loading 
         <div className="App">
+          <NewTweet addTweet = {this.addTweet} />
           {tweets.length > 0 && users.length>0 ? 
               <div className="tweets-continer"> 
                   {
