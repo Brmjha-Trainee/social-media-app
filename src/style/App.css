@@ -1,1 +1,11 @@
-  
+  .App{
+  }
+  .tweets-continer {
+    margin: auto;
+    width: 60%;
+  }
+
+  .loading-image {
+      width: 50%;
+      margin: auto;
+  }

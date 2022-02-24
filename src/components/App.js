@@ -2,14 +2,14 @@ import '../style/App.css'
 import React , {Component } from 'react'
 import { getInitialData } from '../utils/api';
 import Tweet from './Tweet';
-
+import loading from "../img/loading.gif";
 
 class App extends Component {
   // first get the users  and tweets
 
     state = {
-      tweets: [],
-      users : [],
+      tweets :[],
+      users:[],
     };
 
   
@@ -29,22 +29,35 @@ class App extends Component {
   }
 
   getAuthorTweet = (id) => {
-     console.log(this.state.users.find((user) => user.id = id ))
+     return  this.state.users.find((user) => user.id === id )
   }
-
   
 
-
-
   render() {
-    
     return (
+      // loading 
+        <div className="App">
+          {this.state.tweets.length > 0 && this.state.users.length>0 ? 
+              <div className="tweets-continer"> 
+
+
+                  {
+                  this.state.tweets.map((tweet) => 
+                  <Tweet tweet={tweet} author = {this.getAuthorTweet(tweet.author)} /> )
+                   }
+              </div>
+          : 
+              <div className='loading-image'>
+                <img src={loading} />
+              </div> 
+          
+           }
+       </div> 
+
+  
       
-    <div className="App">
-      <header className="App-header">
-      </header>
-        <Tweet tweet={this.state.tweets[0]}  />
-    </div>
+      
+    
   );
 
 }}

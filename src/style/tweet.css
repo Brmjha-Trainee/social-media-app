@@ -1,8 +1,10 @@
 .tweet {
     display: flex;
     padding: 30px;
-    border: 0.2px white solid;
-    width: 500px;
+    border-bottom: 0.1px #666464 solid;
+    width: 80%;
+    margin: auto;
+
 }
 
 .profile-image {
@@ -46,4 +48,7 @@
     align-items:center;
     justify-content: space-between;
     width: 100px;
+    cursor: pointer;
 }
+
+
