@@ -1,10 +1,12 @@
 import '../style/App.css'
 import React , {Component } from 'react'
 import { getInitialData } from '../utils/api'
-import Tweet from './Tweet'
 import loading from '../img/loading.gif'
-import NewTweet from './NewTweet'
-import nextId from "react-id-generator";
+import nextId from "react-id-generator"
+import {Switch, Route} from 'react-router-dom'
+import TimeLine from './TimeLine'
+import TweetPage from './TweetPage'
+
 
 
 class App extends Component {
@@ -47,7 +49,6 @@ class App extends Component {
     } else {
       likes = [...this.state.tweets[id].likes, authedUser ]
     }
-     
     const nweTweets = this.state.tweets
     nweTweets[id].likes = likes
     this.setState({
@@ -67,7 +68,6 @@ class App extends Component {
       replies: [],
       replyingTo: null,
     } 
-    console.log(newTweets)
     this.setState({
       tweets: newTweets
     })
@@ -76,17 +76,32 @@ class App extends Component {
   render() {
     const tweets = Object.keys(this.state.tweets).map((key) => { return  this.state.tweets[key]; }).slice(0).reverse()
     const users = Object.keys(this.state.users).map((key) => { return  this.state.users [key]; })
+    const author = this.state.users[this.state.Authed_ID]
     return (
       // loading 
         <div className="App">
-          <NewTweet addTweet = {this.addTweet} />
           {tweets.length > 0 && users.length>0 ? 
-              <div className="tweets-continer"> 
-                  {
-                  tweets.map((tweet) => 
-                  <Tweet tweet={tweet} author = {this.getAuthorTweet(tweet.author)} checkLike= {this.isLiked } handleLike = {this.toggleLike}  key ={tweet.id} /> )
-                   }
-              </div>
+            <Switch>
+            <Route 
+              exact path="/"      
+              render={() => 
+              <TimeLine tweets = {tweets} author = {author} 
+                isLiked={this.isLiked} 
+                getAuthorTweet={this.getAuthorTweet}
+                toggleLike = {this.toggleLike}
+                addTweet ={this.addTweet}
+                 />} />
+            <Route 
+              exact path="/tweet/:id"  
+              render={() => <TweetPage 
+                tweets = {this.state.tweets}
+                author = {author} 
+                isLiked={this.isLiked} 
+                getAuthorTweet={this.getAuthorTweet}
+                toggleLike = {this.toggleLike}
+                addTweet ={this.addTweet}
+                 />} />
+          </Switch>
           : 
               <div className='loading-image'>
                 <img src={loading} />
