@@ -31,21 +31,7 @@
     background-color: #27252b;
 }
 
-.submit-btn {
-    margin-top: 10px;
-    width: 150px;
-    height: 30px;
-    background-color: transparent;
-    border: 1px #04db85 solid;
-    color: #04db85;
-    border-radius:3px;
-    
-}
 
-.submit-btn:hover {
-    background-color: #04db85;
-    color: #ffff;
-}
 
 .tweet-length {
     color: #BE3C16;

@@ -42,7 +42,7 @@ class NewTweet extends Component {
                        </div>
                    )}
                 
-                <button className = 'submit-btn' type='submit' disabled={''}>
+                <button className = 'btn' type='submit' disabled={this.state.text === ''}>
                     Tweet
                 </button>
             </form>

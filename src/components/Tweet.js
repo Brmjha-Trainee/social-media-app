@@ -23,7 +23,6 @@ class Tweet extends Component {
                     <img src={author.avatarURL} />
                 </div>
                     <div className="tweet-body">
-                   
                     <div className="tweet-header">
                         <div className="user-name"> { author.name} <span className="user-id"> @{author.id } </span></div>
                     </div>
@@ -37,7 +36,6 @@ class Tweet extends Component {
                             {this.props.checkLike(tweet) ? <RiHeart3Fill size={20} color ="#be3c16" /> :<RiHeart3Line size={20} color ="#545454" />}
                         </div>
                      <span className="like-number"> {tweet.likes.length} </span>
-
 
                     {/* replay icon  */}
                     

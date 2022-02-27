@@ -1,5 +1,4 @@
-  .App{
-  }
+
   .tweets-continer {
     margin: auto;
     width: 60%;
@@ -13,5 +12,23 @@
   a {
     text-decoration: none;
   }
+
+  .btn {
+    margin-top: 10px;
+    width: 150px;
+    height: 30px;
+    background-color: transparent;
+    border: 1px #04db85 solid;
+    color: #04db85;
+    border-radius:3px;
+    cursor: pointer;
+
+    
+}
+
+.btn:hover {
+    background-color: #04db85;
+    color: #ffff;
+}
 
   

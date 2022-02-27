@@ -3,9 +3,10 @@ import React , {Component } from 'react'
 import { getInitialData } from '../utils/api'
 import loading from '../img/loading.gif'
 import nextId from "react-id-generator"
-import {Switch, Route} from 'react-router-dom'
+import {Switch, Route , Redirect} from 'react-router-dom'
 import TimeLine from './TimeLine'
 import TweetPage from './TweetPage'
+import Signin from './Signin'
 
 
 
@@ -15,7 +16,7 @@ class App extends Component {
     state = {
       tweets :{},
       users:{},
-      Authed_ID: 'tylermcginnis' 
+      Authed_ID: 'tylermcginnis',
     };
 
   
@@ -28,6 +29,22 @@ class App extends Component {
           })
 
         });
+  }
+
+  handAuthentication  = (username,passward) => {
+    const {users} = this.state
+    if (typeof(users[username]) == 'undefined' ){
+      return false
+    } else if(!(users[username].pass === passward)){
+      return false
+    } else {
+      this.setState({
+        Authed_ID:username
+      })
+      console.log('you did it')
+      return true
+
+    }
   }
 
 
@@ -82,10 +99,16 @@ class App extends Component {
         <div className="App">
           {tweets.length > 0 && users.length>0 ? 
             <Switch>
-            <Route 
+              <Route 
               exact path="/"      
               render={() => 
-              <TimeLine tweets = {tweets} author = {author} 
+                <Signin handAuthentication = {this.handAuthentication} />
+        } />
+            <Route 
+              exact path="/timeLine"      
+              render={() => 
+              <TimeLine tweets = {tweets} 
+                author = {author} 
                 isLiked={this.isLiked} 
                 getAuthorTweet={this.getAuthorTweet}
                 toggleLike = {this.toggleLike}

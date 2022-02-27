@@ -1,0 +1,50 @@
+.signin-cont {
+    margin: 50px auto;
+    width: 30%;
+    background-color: #423e49;
+    padding: 50px 0;
+    border-radius: 10px;
+    text-align: center;
+    color:#ffff;
+   
+}
+.signin-header img{
+    width: 200px;
+}
+
+.sigin-form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.sigin-form div{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.sigin-form div label {
+    margin-bottom: 10px;
+    color: #ffff;
+
+}
+
+.sigin-form div input {
+    margin-bottom: 15px;
+    background-color: #423e49;
+    border: #ffff solid 1px;
+    height: 20px;
+    border-radius: 5px;
+    color: #ffff;
+}
+
+.sigin-form div input:focus {
+    outline: none;
+    background-color: #4e4956;
+}
+
+.message{
+    color: #BE3C16;
+    text-align: left;
+    margin: 20px;
+}
