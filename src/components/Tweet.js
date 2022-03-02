@@ -18,7 +18,6 @@ class Tweet extends Component {
         const displayReplay = this.state
         return (
             <div className="tweet">
-                
                 <div className="profile-image">
                     <img src={author.avatarURL} />
                 </div>
@@ -26,6 +25,7 @@ class Tweet extends Component {
                     <div className="tweet-header">
                         <div className="user-name"> { author.name} <span className="user-id"> @{author.id } </span></div>
                     </div>
+                    
                     <Link to={`/tweet/${tweet.id}`}>
                     <div className="tweet-text"> {tweet.text} </div>
                     </Link>

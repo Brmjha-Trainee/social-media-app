@@ -41,7 +41,6 @@ class App extends Component {
       this.setState({
         Authed_ID:username
       })
-      console.log('you did it')
       return true
 
     }
@@ -73,7 +72,7 @@ class App extends Component {
     })
   }
   
-  addTweet = (text) => {
+  addTweet = (text,tweetID = null) => {
     const { Authed_ID} = this.state
     const newTweets = this.state.tweets
     const id = nextId()
@@ -83,8 +82,11 @@ class App extends Component {
       author: Authed_ID,
       likes: [],
       replies: [],
-      replyingTo: null,
-    } 
+      replyingTo:tweetID,
+  } 
+  if(tweetID){
+    newTweets[tweetID].replies = [...newTweets[tweetID].replies, id]
+  }
     this.setState({
       tweets: newTweets
     })

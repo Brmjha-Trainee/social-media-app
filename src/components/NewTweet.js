@@ -10,7 +10,11 @@ class NewTweet extends Component {
         e.preventDefault();
         const text = this.state.text
         if(text !== ''){
-        this.props.addTweet(text)
+        if(this.props.tweet){
+            this.props.addTweet(text,this.props.tweet)
+        }else {
+            this.props.addTweet(text)
+        }
         this.setState({text:''})
         }
     }

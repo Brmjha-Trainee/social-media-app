@@ -22,6 +22,8 @@ function TweetPage (props) {
                 handleLike = {props.toggleLike}  
                 key ={tweet.id} />
 
+                <NewTweet addTweet = {props.addTweet} tweet = {tweet.id} />
+
                {tweet.replies.map((rep) => {
                const replay =tweets[rep]
                    return (
@@ -33,6 +35,7 @@ function TweetPage (props) {
                             checkLike= {props.isLiked } 
                             handleLike = {props.toggleLike}  
                             key ={replay.id} />
+                       
 
                     </div> )
                

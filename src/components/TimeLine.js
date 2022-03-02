@@ -18,9 +18,11 @@ class TimeLine extends Component {
                     <NewTweet addTweet = {this.props.addTweet} />
                         <div className="tweets-continer"> 
                             {
-                            tweets.map((tweet) => 
-                            <Tweet tweet={tweet} author = {this.props.getAuthorTweet(tweet.author)} checkLike= {this.props.isLiked } handleLike = {this.props.toggleLike}  key ={tweet.id} /> )
-                            }
+                            tweets.map((tweet) => {
+                            if(tweet.replyingTo === null) {
+                             return <Tweet tweet={tweet} author = {this.props.getAuthorTweet(tweet.author)} checkLike= {this.props.isLiked } handleLike = {this.props.toggleLike}  key ={tweet.id} />  
+                        }
+                    })}
                     </div>
             </div>
 
